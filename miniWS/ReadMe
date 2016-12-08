@@ -1,0 +1,19 @@
+根据WebSocket RFC6455 实现的websocket协议交互。
+服务器基于Node,客户端基于浏览器提供的WebSocket Api。
+包括:
+    协议握手
+    数据传输
+    挥手
+
+未实现的部分包括:
+    控制协议,如ping,pong
+    数据长度大于125的数据帧发送和接收
+    数据帧分片
+    二进制数据发送和接收
+
+运行
+    服务器: node wsServer.js
+    客户端: 直接用浏览器打开,查看console
+
+node v6.2.2
+chrome Version 54.0.2840.98 (64-bit)

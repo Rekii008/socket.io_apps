@@ -1,0 +1,39 @@
+<html>
+<header>
+</header>
+<body>
+<div>
+    Websocket Demo !
+</div>
+<script>
+
+    console.log("start");
+    if (window.WebSocket != undefined) {
+        console.log("support websocket");
+        let connection = new WebSocket("ws://localhost:8080");
+        connection.onopen = function (event) {
+            console.log("connected to: ", event.target.url);
+            console.log('send hi');
+            connection.send("hi !");
+        };
+        connection.onclose = function (event) {
+            console.log("Closed. ", event.code, event.reason);
+        }
+        ;
+        connection.onmessage = function (event) {
+            console.log("recd: ", event.data);
+            connection.close();
+        }
+        ;
+        connection.onerror = function (event) {
+            console.log("Error: " + event.data);
+        }
+        ;
+
+    } else {
+        console.log('do not support WebSocket');
+    }
+
+</script>
+</body>
+</html>
